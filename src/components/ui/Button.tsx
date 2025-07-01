@@ -10,7 +10,7 @@ interface ButtonProps {
   className?: string;
 }
 
-export default function Button({ text = 'Get Started', href, className }: ButtonProps) {
+export default function Button({ text = 'Book Now', href, className }: ButtonProps) {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
 

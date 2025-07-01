@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "./ui/Button";
 import Link from "next/link";
+import ImageGallery from "./ImageGallery";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,14 +61,14 @@ export default function Header() {
               href="/cart"
               className="text-lg font-medium text-[#2c2c2c] hover:text-[#d1452a]"
             >
-              Cart(0)
+              Gallery
             </Link>
           </nav>
         </div>
 
         <div className="hidden md:block">
           <Button
-            text="Get started"
+            text="Book Now"
             href="/"
             className="bg-[#d1452a] text-white hover:brightness-110"
           />
@@ -134,12 +135,6 @@ export default function Header() {
                 className="text-lg font-medium text-[#2c2c2c] hover:text-[#d1452a]"
               >
                 Pricing
-              </Link>
-              <Link
-                href="/cart"
-                className="text-lg font-medium text-[#2c2c2c] hover:text-[#d1452a]"
-              >
-                Cart(0)
               </Link>
             </nav>
           </motion.div>
