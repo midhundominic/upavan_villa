@@ -81,7 +81,7 @@ const ImageGallery: React.FC = () => {
       animate="visible"
       variants={fadeInScaleVariants}
     >
-      <h2 className="text-3xl font-bold mb-8 text-center">Gallery</h2>
+      <h2 className="text-3xl text-[#0F086A] font-bold mb-8 text-center">Gallery</h2>
       <div className="relative w-full">
         {/* Navigation */}
         <button

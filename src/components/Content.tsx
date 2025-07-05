@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import Button from "./ui/Button";
-import LearnButton from "./ui/LearnButton";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import logo3 from "../../public/assets/logo3.png";
