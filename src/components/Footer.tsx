@@ -5,7 +5,7 @@ import { Facebook, Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-[#1A1A1A] text-[#CCCCCC] pt-16 pb-8 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-20">
         {/* Contacts */}
         <div>
           <h3 className="text-lg font-semibold text-[#E8542F] mb-4">
@@ -24,6 +24,22 @@ export default function Footer() {
             <br />
             +91 9946307770
           </p>
+        </div>
+
+        {/* Map */}
+        <div className="w-full h-full">
+          <h3 className="text-lg font-semibold text-[#E8542F] mb-4">Location</h3>
+          <div className="rounded-xl overflow-hidden shadow-md w-full h-48">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2463.9097613011336!2d76.34232963724496!3d10.120611193273598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f18166c9249%3A0xae9144449446463c!2sUpavan%20Villa!5e0!3m2!1sen!2sin!4v1753192624019!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="border-0 w-full h-full"
+            ></iframe>
+          </div>
         </div>
 
         {/* Explore */}

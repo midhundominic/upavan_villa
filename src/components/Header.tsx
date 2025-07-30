@@ -21,11 +21,11 @@ export default function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-[#ffffff]"
+      className="fixed top-0 left-0 w-full z-50 bg-white shadow-md"
     >
-      <div className="max-w-7xl mx-auto pt-10 pb-3 px-3 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto pt-2  px-3 flex justify-between items-center">
         <div className="flex items-center gap-10">
-          <div className="w-[80px] md:w-[140px]">
+          <div className="w-[60px] md:w-[110px]">
             <Image
               src="/assets/logo3.png"
               alt="Upavan Villa Logo"
@@ -75,7 +75,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="focus:outline-none w-[60px] h-[60px] rounded-2xl bg-[#d1452a] flex items-center justify-center"
@@ -104,8 +104,9 @@ export default function Header() {
               )}
             </svg>
           </button>
-        </div>
-      </div>
+        </div>*/}
+      </div> 
+
 
       {/* Mobile Nav */}
       <AnimatePresence>

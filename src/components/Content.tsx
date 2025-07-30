@@ -22,7 +22,7 @@ export default function Content() {
         whileInView={fadeUp.whileInView}
         transition={fadeUp.transition}
         viewport={fadeUp.viewport}
-        className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        className="max-w-7xl mx-auto px-4 pt-2 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
       >
         <div>
           <motion.div
