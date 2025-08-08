@@ -21,7 +21,7 @@ export default function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300"
+      className="fixed top-0 left-0 w-full z-40 bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300"
 
     >
       <div className="max-w-7xl mx-auto pt-2  px-3 flex justify-between items-center">
@@ -65,8 +65,7 @@ export default function Header() {
 
         <div className=" md:block pb-1">
           <Button
-            
-       
+            text="Book Now"
             className="bg-[#d1452a] text-white hover:brightness-110"
           />
         </div>

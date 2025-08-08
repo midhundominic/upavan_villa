@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { createPortal } from "react-dom";
 
 export default function Button({
   text = "Book Now",
@@ -58,8 +59,8 @@ function ContactUs({ onClose }: { onClose: () => void }) {
     }
   };
 
-  return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 px-4">
+  const modalContent = (
+    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-[999999] px-4">
       <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-xl relative animate-fade-in">
         <button
           onClick={onClose}
@@ -119,4 +120,11 @@ function ContactUs({ onClose }: { onClose: () => void }) {
       </div>
     </div>
   );
+
+  // Use React Portal to render modal at document body level
+  if (typeof window !== 'undefined') {
+    return createPortal(modalContent, document.body);
+  }
+
+  return null;
 }
