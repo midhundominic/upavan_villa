@@ -43,13 +43,18 @@ function ContactUs({ onClose }: { onClose: () => void }) {
     formData.append("_template", "table");
 
     try {
-      await fetch("https://formsubmit.co/midhundominic2002@gmail.com", {
-        method: "POST",
-        body: formData,
-      });
-
+      await Promise.all([
+        fetch("https://formsubmit.co/midhundominic2002@gmail.com", {
+          method: "POST",
+          body: formData,
+        }),
+        fetch("https://formsubmit.co/midhunmicrosoft@gmail.com", {
+          method: "POST",
+          body: formData,
+        }),
+      ]);
+  
       setSubmitted(true);
-      // Auto close modal after showing success message
       setTimeout(() => {
         onClose();
       }, 2000);
@@ -92,21 +97,21 @@ function ContactUs({ onClose }: { onClose: () => void }) {
               name="name"
               placeholder="Your Name"
               required
-              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400"
+              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400 text-black"
             />
             <input
               type="email"
               name="email"
               placeholder="Email Address"
               required
-              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400"
+              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400 text-black"
             />
             <input
               type="tel"
               name="phone"
               placeholder="Phone Number"
               required
-              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400"
+              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400 text-black"
             />
 
             <div className="text-sm text-gray-600 mt-4 space-y-2 bg-gray-50 p-4 rounded-lg">
