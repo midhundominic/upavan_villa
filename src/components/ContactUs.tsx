@@ -30,7 +30,7 @@ export default function ContactUs({ onClose }: { onClose: () => void }) {
       setTimeout(() => {
         router.push("/");
       }, 2500);
-    } catch (error) {
+    } catch {
       alert("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);

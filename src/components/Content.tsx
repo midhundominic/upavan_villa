@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle } from "lucide-react";
 import Button from "./ui/Button";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import logo3 from "../../public/assets/logo3.png";
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },

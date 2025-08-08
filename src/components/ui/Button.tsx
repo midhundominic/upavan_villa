@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 
 export default function Button({
@@ -30,7 +29,7 @@ export default function Button({
 function ContactUs({ onClose }: { onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,7 +57,7 @@ function ContactUs({ onClose }: { onClose: () => void }) {
       setTimeout(() => {
         onClose();
       }, 2000);
-    } catch (error) {
+    } catch {
       alert("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);

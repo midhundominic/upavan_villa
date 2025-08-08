@@ -24,7 +24,7 @@ const contentList = [
 
 const Hero: React.FC = () => {
   const [index, setIndex] = useState(0);
-  const { ref, inView } = useInView({ threshold: 0.1 });
+  const { ref } = useInView({ threshold: 0.1 });
 
   useEffect(() => {
     const interval = setInterval(() => {

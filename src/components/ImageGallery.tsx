@@ -49,7 +49,6 @@ function chunkArray<T>(arr: T[], chunkSize: number): T[][] {
 const ImageGallery: React.FC = () => {
   const pages = chunkArray(images, IMAGES_PER_PAGE);
   const [page, setPage] = useState(0);
-  const [direction, setDirection] = useState(1);
   const [fadeOnMount, setFadeOnMount] = useState(true); // control fade only once
 
   useEffect(() => {
@@ -59,102 +58,100 @@ const ImageGallery: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(1);
       setPage((prev) => (prev + 1) % pages.length);
     }, AUTO_SLIDE_INTERVAL);
     return () => clearInterval(interval);
   }, [pages.length]);
 
   const handlePrev = () => {
-    setDirection(-1);
     setPage((prev) => (prev - 1 + pages.length) % pages.length);
   };
+
   const handleNext = () => {
-    setDirection(1);
     setPage((prev) => (prev + 1) % pages.length);
   };
 
   return (
     <section id="gallery">
-    <motion.section
-      className="w-full py-12 px-4 md:px-8"
-      initial="hidden"
-      animate="visible"
-      variants={fadeInScaleVariants}
-    >
-      <h2 className="text-3xl text-[#0F086A] font-bold mb-8 text-center">Gallery</h2>
-      <div className="relative w-full">
-        {/* Navigation */}
-        <button
-          className="absolute left-4 top-1/2 -translate-y-[calc(50%-90px)] z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow transition"
-          onClick={handlePrev}
-          aria-label="Previous"
-        >
-          <ChevronLeft size={32} />
-        </button>
-        <button
-          className="absolute right-4 top-1/2 -translate-y-[calc(50%-90px)] z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow transition"
-          onClick={handleNext}
-          aria-label="Next"
-        >
-          <ChevronRight size={32} />
-        </button>
+      <motion.section
+        className="w-full py-12 px-4 md:px-8"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInScaleVariants}
+      >
+        <h2 className="text-3xl text-[#0F086A] font-bold mb-8 text-center">Gallery</h2>
+        <div className="relative w-full">
+          {/* Navigation */}
+          <button
+            className="absolute left-4 top-1/2 -translate-y-[calc(50%-90px)] z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow transition"
+            onClick={handlePrev}
+            aria-label="Previous"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          <button
+            className="absolute right-4 top-1/2 -translate-y-[calc(50%-90px)] z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow transition"
+            onClick={handleNext}
+            aria-label="Next"
+          >
+            <ChevronRight size={32} />
+          </button>
 
-        {/* Gallery */}
-        <div className="overflow-hidden w-full">
-          <AnimatePresence initial={false}>
-            {fadeOnMount ? (
-              <motion.div
-                key={page}
-                className="grid grid-cols-2 grid-rows-2 gap-4"
-                initial={{ opacity: 0, y: 40, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6 }}
-              >
-                {pages[page].map((img, idx) => (
-                  <motion.div
-                    key={img}
-                    className="relative w-full h-[32vw] min-h-[180px] max-h-[360px] rounded-xl overflow-hidden shadow-md"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Image
-                      src={img}
-                      alt={`Gallery image ${page * IMAGES_PER_PAGE + idx + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="100vw"
-                      priority={idx === 0}
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            ) : (
-              <div
-                key={page}
-                className="grid grid-cols-2 grid-rows-2 gap-4"
-              >
-                {pages[page].map((img, idx) => (
-                  <div
-                    key={img}
-                    className="relative w-full h-[32vw] min-h-[180px] max-h-[360px] rounded-xl overflow-hidden shadow-md"
-                  >
-                    <Image
-                      src={img}
-                      alt={`Gallery image ${page * IMAGES_PER_PAGE + idx + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="100vw"
-                      priority={idx === 0}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </AnimatePresence>
+          {/* Gallery */}
+          <div className="overflow-hidden w-full">
+            <AnimatePresence initial={false}>
+              {fadeOnMount ? (
+                <motion.div
+                  key={page}
+                  className="grid grid-cols-2 grid-rows-2 gap-4"
+                  initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {pages[page].map((img, idx) => (
+                    <motion.div
+                      key={img}
+                      className="relative w-full h-[32vw] min-h-[180px] max-h-[360px] rounded-xl overflow-hidden shadow-md"
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Image
+                        src={img}
+                        alt={`Gallery image ${page * IMAGES_PER_PAGE + idx + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority={idx === 0}
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              ) : (
+                <div
+                  key={page}
+                  className="grid grid-cols-2 grid-rows-2 gap-4"
+                >
+                  {pages[page].map((img, idx) => (
+                    <div
+                      key={img}
+                      className="relative w-full h-[32vw] min-h-[180px] max-h-[360px] rounded-xl overflow-hidden shadow-md"
+                    >
+                      <Image
+                        src={img}
+                        alt={`Gallery image ${page * IMAGES_PER_PAGE + idx + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority={idx === 0}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
     </section>
   );
 };

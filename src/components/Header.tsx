@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "./ui/Button";
 import Link from "next/link";
-import ImageGallery from "./ImageGallery";
+
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
