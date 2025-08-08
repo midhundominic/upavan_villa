@@ -75,6 +75,7 @@ const ImageGallery: React.FC = () => {
   };
 
   return (
+    <section id="gallery">
     <motion.section
       className="w-full py-12 px-4 md:px-8"
       initial="hidden"
@@ -154,6 +155,7 @@ const ImageGallery: React.FC = () => {
         </div>
       </div>
     </motion.section>
+    </section>
   );
 };
 

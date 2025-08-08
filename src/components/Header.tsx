@@ -21,7 +21,8 @@ export default function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full z-50 bg-white shadow-md"
+      className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300"
+
     >
       <div className="max-w-7xl mx-auto pt-2  px-3 flex justify-between items-center">
         <div className="flex items-center gap-10">
@@ -51,14 +52,10 @@ export default function Header() {
             >
               About
             </Link>
+           
             <Link
-              href="#pricing"
-              className="text-lg font-medium text-[#2c2c2c] hover:text-[#d1452a]"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="/cart"
+              href="#gallery"
+              scroll={true}
               className="text-lg font-medium text-[#2c2c2c] hover:text-[#d1452a]"
             >
               Gallery
@@ -66,10 +63,10 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="hidden md:block">
+        <div className=" md:block pb-1">
           <Button
-            text="Book Now"
-            href="/"
+            
+       
             className="bg-[#d1452a] text-white hover:brightness-110"
           />
         </div>

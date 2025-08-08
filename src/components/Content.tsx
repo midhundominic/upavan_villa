@@ -64,7 +64,10 @@ export default function Content() {
             viewport={fadeUp.viewport}
             className="pt-5"
           >
-            <Button text="Book Now" href="/booking" />
+            <Button
+              text="Book Now"
+              className="bg-[#d1452a] text-white hover:brightness-110"
+            />
           </motion.div>
         </div>
         <motion.div
@@ -147,7 +150,8 @@ export default function Content() {
             </div> */}
             <div>
               <h3 className="text-lg font-semibold text-[#0F086A]">
-              Fully Air-Conditioned – Stay cool and relaxed, no matter the weather.
+                Fully Air-Conditioned – Stay cool and relaxed, no matter the
+                weather.
               </h3>
               {/* <p className="text-[#5E5B8A] leading-relaxed">
                 Odio pellentesque diam volutpat commodo sed egestas egestas
@@ -174,7 +178,7 @@ export default function Content() {
             </div> */}
             <div>
               <h3 className="text-lg font-semibold text-[#0F086A]">
-              Spacious Interiors – Designed for both style and comfort.
+                Spacious Interiors – Designed for both style and comfort.
               </h3>
             </div>
           </motion.div>
@@ -188,11 +192,9 @@ export default function Content() {
           >
             <div>
               <h3 className="text-lg font-semibold text-[#0F086A]">
-               Complimentary Breakfast – Start your day the right way.
+                Complimentary Breakfast – Start your day the right way.
               </h3>
-             
             </div>
-            
           </motion.div>
 
           <motion.div
@@ -204,11 +206,9 @@ export default function Content() {
           >
             <div>
               <h3 className="text-lg font-semibold text-[#0F086A]">
-              24/7 Service Support – Always available to assist you.
+                24/7 Service Support – Always available to assist you.
               </h3>
-             
             </div>
-            
           </motion.div>
 
           <motion.div
@@ -220,11 +220,9 @@ export default function Content() {
           >
             <div>
               <h3 className="text-lg font-semibold text-[#0F086A]">
-              Private Balcony/View – Enjoy scenic views and fresh air.
+                Private Balcony/View – Enjoy scenic views and fresh air.
               </h3>
-             
             </div>
-            
           </motion.div>
         </motion.div>
       </motion.div>

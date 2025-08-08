@@ -1,9 +1,11 @@
 "use client";
 
 import { Facebook, Instagram } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
+    <section id="about">
     <footer className="bg-[#1A1A1A] text-[#CCCCCC] pt-16 pb-8 px-6 md:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-20">
         {/* Contacts */}
@@ -54,21 +56,15 @@ export default function Footer() {
                 Home
               </a>
             </li>
+            
             <li>
-              <a
-                href="/more"
-                className="hover:text-[#FDEBC9] transition-all duration-300 hover:translate-x-1 inline-block"
-              >
-                More
-              </a>
-            </li>
-            <li>
-              <a
-                href="/gallery"
+              <Link
+                href="#gallery"
+                scroll={true}
                 className="hover:text-[#FDEBC9] transition-all duration-300 hover:translate-x-1 inline-block"
               >
                 Gallery
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -108,5 +104,6 @@ export default function Footer() {
         © Upavan Villa
       </div>
     </footer>
+    </section>
   );
 }

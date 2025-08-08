@@ -3,30 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Button({
-  text = "Book Now",
-  className,
-}: {
-  text?: string;
-  className?: string;
-}) {
-  const [showModal, setShowModal] = useState(false);
-
-  return (
-    <>
-      <button
-        onClick={() => setShowModal(true)}
-        className={`px-6 py-3 rounded-xl font-semibold text-base text-white bg-[#d1452a] hover:scale-105 transition-all duration-300 ${className}`}
-      >
-        {text}
-      </button>
-
-      {showModal && <ContactUs onClose={() => setShowModal(false)} />}
-    </>
-  );
-}
-
-function ContactUs({ onClose }: { onClose: () => void }) {
+export default function ContactUs({ onClose }: { onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -38,6 +15,7 @@ function ContactUs({ onClose }: { onClose: () => void }) {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Add required hidden fields for formsubmit
     formData.append("_captcha", "false");
     formData.append("_template", "table");
 
@@ -48,6 +26,7 @@ function ContactUs({ onClose }: { onClose: () => void }) {
       });
 
       setSubmitted(true);
+
       setTimeout(() => {
         router.push("/");
       }, 2500);
@@ -99,12 +78,8 @@ function ContactUs({ onClose }: { onClose: () => void }) {
             />
 
             <div className="text-sm text-gray-700 mt-2 space-y-1">
-              <p>
-                📞 Phone: <span className="font-medium">996140770</span>
-              </p>
-              <p>
-                ✉️ Email: <span className="font-medium">reservation@gmail.com</span>
-              </p>
+              <p>📞 Phone: <span className="font-medium">996140770</span></p>
+              <p>✉️ Email: <span className="font-medium">reservation@gmail.com</span></p>
             </div>
 
             <button
