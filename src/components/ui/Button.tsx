@@ -49,9 +49,10 @@ function ContactUs({ onClose }: { onClose: () => void }) {
       });
 
       setSubmitted(true);
+      // Auto close modal after showing success message
       setTimeout(() => {
-        router.push("/");
-      }, 2500);
+        onClose();
+      }, 2000);
     } catch (error) {
       alert("Something went wrong. Please try again later.");
     } finally {
@@ -59,59 +60,70 @@ function ContactUs({ onClose }: { onClose: () => void }) {
     }
   };
 
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   const modalContent = (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-[999999] px-4">
-      <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-xl relative animate-fade-in">
+    <div 
+      className="fixed inset-0 bg-black/50 flex justify-center items-center z-[999999] px-4"
+      onClick={handleBackdropClick}
+    >
+      <div className="bg-white p-8 rounded-xl w-full max-w-md shadow-xl relative animate-fade-in">
         <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl"
+          className="absolute top-3 right-4 text-gray-400 hover:text-[#d1452a] text-2xl transition-colors"
         >
           ✕
         </button>
 
-        <h2 className="text-2xl font-bold mb-4 text-center">Book Now</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-[#d1452a]">Book Now</h2>
 
         {submitted ? (
-          <div className="text-center py-10 text-green-600 font-medium text-lg">
+          <div className="text-center py-12 text-green-600 font-medium text-xl">
             We will connect you shortly...
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               required
-              className="w-full border border-gray-300 px-4 py-2 rounded-md"
+              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400"
             />
             <input
               type="email"
               name="email"
               placeholder="Email Address"
               required
-              className="w-full border border-gray-300 px-4 py-2 rounded-md"
+              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400"
             />
             <input
               type="tel"
               name="phone"
               placeholder="Phone Number"
               required
-              className="w-full border border-gray-300 px-4 py-2 rounded-md"
+              className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:border-[#d1452a] focus:outline-none transition-colors placeholder-gray-400"
             />
 
-            <div className="text-sm text-gray-700 mt-2 space-y-1">
-              <p>
-                📞 Phone: <span className="font-medium">996140770</span>
+            <div className="text-sm text-gray-600 mt-4 space-y-2 bg-gray-50 p-4 rounded-lg">
+              <p className="flex items-center gap-2">
+                <span className="text-[#d1452a]">📞</span>
+                <span>Phone: <span className="font-semibold text-[#d1452a]">996140770</span></span>
               </p>
-              <p>
-                ✉️ Email: <span className="font-medium">reservation@gmail.com</span>
+              <p className="flex items-center gap-2">
+                <span className="text-[#d1452a]">✉️</span>
+                <span>Email: <span className="font-semibold text-[#d1452a]">reservation@gmail.com</span></span>
               </p>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#d1452a] text-white py-2 rounded-md hover:brightness-110 transition disabled:opacity-50"
+              className="w-full bg-[#d1452a] text-white py-3 rounded-lg hover:bg-[#b83a22] transition-colors disabled:opacity-50 font-semibold text-lg"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>
